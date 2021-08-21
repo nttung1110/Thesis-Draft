@@ -1,0 +1,18 @@
+{
+    "os": "Linux-5.4.0-77-generic-x86_64-with-debian-bullseye-sid",
+    "python": "3.6.13",
+    "heartbeatAt": "2021-07-23T16:23:01.429125",
+    "startedAt": "2021-07-23T16:23:00.322841",
+    "docker": null,
+    "gpu": "GeForce RTX 2080 Ti",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": "11.0.228",
+    "args": [],
+    "state": "running",
+    "program": "train_pair_matching.py",
+    "codePath": "train_pair_matching.py",
+    "host": "selab3",
+    "username": "nttung",
+    "executable": "/home/nttung/anaconda3/envs/detectron2/bin/python"
+}

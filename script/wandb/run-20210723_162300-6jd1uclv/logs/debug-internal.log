@@ -1,0 +1,190 @@
+2021-07-23 16:23:00,842 INFO    MainThread:3072890 [internal.py:wandb_internal():91] W&B internal server running at pid: 3072890, started at: 2021-07-23 16:23:00.842010
+2021-07-23 16:23:00,843 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: check_version
+2021-07-23 16:23:00,843 INFO    WriterThread:3072890 [datastore.py:open_for_write():80] open: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/run-6jd1uclv.wandb
+2021-07-23 16:23:00,844 DEBUG   SenderThread:3072890 [sender.py:send():179] send: header
+2021-07-23 16:23:00,844 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: check_version
+2021-07-23 16:23:01,019 DEBUG   SenderThread:3072890 [sender.py:send():179] send: run
+2021-07-23 16:23:01,021 DEBUG   SenderThread:3072890 [git.py:repo():33] git repository is invalid
+2021-07-23 16:23:01,416 INFO    SenderThread:3072890 [dir_watcher.py:__init__():168] watching files in: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files
+2021-07-23 16:23:01,416 INFO    SenderThread:3072890 [sender.py:_start_run_threads():707] run started: 6jd1uclv with start time 1627057380
+2021-07-23 16:23:01,417 DEBUG   SenderThread:3072890 [sender.py:send():179] send: summary
+2021-07-23 16:23:01,418 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: run_start
+2021-07-23 16:23:01,420 INFO    SenderThread:3072890 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-07-23 16:23:01,428 DEBUG   HandlerThread:3072890 [meta.py:__init__():39] meta init
+2021-07-23 16:23:01,429 DEBUG   HandlerThread:3072890 [meta.py:__init__():53] meta init done
+2021-07-23 16:23:01,429 DEBUG   HandlerThread:3072890 [meta.py:probe():210] probe
+2021-07-23 16:23:01,437 DEBUG   HandlerThread:3072890 [git.py:repo():33] git repository is invalid
+2021-07-23 16:23:01,437 DEBUG   HandlerThread:3072890 [meta.py:_save_pip():57] save pip
+2021-07-23 16:23:01,438 DEBUG   HandlerThread:3072890 [meta.py:_save_pip():71] save pip done
+2021-07-23 16:23:01,438 DEBUG   HandlerThread:3072890 [meta.py:_save_conda():78] save conda
+2021-07-23 16:23:02,417 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/conda-environment.yaml
+2021-07-23 16:23:02,417 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/requirements.txt
+2021-07-23 16:23:02,418 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-summary.json
+2021-07-23 16:23:07,418 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/output.log
+2021-07-23 16:23:56,431 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/conda-environment.yaml
+2021-07-23 16:23:56,447 DEBUG   HandlerThread:3072890 [meta.py:_save_conda():86] save conda done
+2021-07-23 16:23:56,454 DEBUG   HandlerThread:3072890 [meta.py:probe():252] probe done
+2021-07-23 16:23:57,369 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:23:57,371 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:23:57,432 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-metadata.json
+2021-07-23 16:23:57,759 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:23:57,759 DEBUG   SenderThread:3072890 [sender.py:send():179] send: files
+2021-07-23 16:23:57,759 INFO    SenderThread:3072890 [sender.py:_save_file():829] saving file wandb-metadata.json with policy now
+2021-07-23 16:23:58,732 INFO    Thread-11 :3072890 [upload_job.py:push():133] Uploaded file /tmp/tmpiw3bv1xewandb/2tabbtdi-wandb-metadata.json
+2021-07-23 16:23:59,976 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:24:00,433 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/media/graph/graph_0_summary_1fd512c8a2f378a564ba.graph.json
+2021-07-23 16:24:00,433 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/media/graph
+2021-07-23 16:24:00,433 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_created():216] file/dir created: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/media
+2021-07-23 16:24:00,509 DEBUG   SenderThread:3072890 [sender.py:send():179] send: files
+2021-07-23 16:24:00,510 INFO    SenderThread:3072890 [sender.py:_save_file():829] saving file media/graph/graph_0_summary_1fd512c8a2f378a564ba.graph.json with policy now
+2021-07-23 16:24:00,510 DEBUG   SenderThread:3072890 [sender.py:send():179] send: summary
+2021-07-23 16:24:00,510 INFO    SenderThread:3072890 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-07-23 16:24:01,402 INFO    Thread-12 :3072890 [upload_job.py:push():133] Uploaded file /tmp/tmpiw3bv1xewandb/38q9yw83-media/graph/graph_0_summary_1fd512c8a2f378a564ba.graph.json
+2021-07-23 16:24:01,433 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-summary.json
+2021-07-23 16:24:12,761 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:24:12,762 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:24:28,129 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:24:28,129 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:24:30,199 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:24:43,471 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:24:43,472 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:24:58,819 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:24:58,819 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:25:00,565 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:25:14,193 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:25:14,231 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:25:29,568 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:25:29,569 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:25:30,825 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:25:42,329 DEBUG   SenderThread:3072890 [sender.py:send():179] send: history
+2021-07-23 16:25:42,329 DEBUG   SenderThread:3072890 [sender.py:send():179] send: summary
+2021-07-23 16:25:42,331 INFO    SenderThread:3072890 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-07-23 16:25:42,477 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-summary.json
+2021-07-23 16:25:43,477 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/output.log
+2021-07-23 16:25:44,971 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:25:44,971 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:26:00,354 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:26:00,354 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:26:01,163 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:26:15,723 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:26:15,723 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:26:31,072 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:26:31,072 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:26:31,419 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:26:46,419 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:26:46,420 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:27:01,681 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:27:01,804 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:27:01,808 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:27:17,184 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-23 16:27:17,184 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: stop_status
+2021-07-23 16:27:22,196 WARNING MainThread:3072890 [internal.py:wandb_internal():147] Internal process interrupt: 1
+2021-07-23 16:27:23,525 INFO    Thread-8  :3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/output.log
+2021-07-23 16:27:24,690 DEBUG   SenderThread:3072890 [sender.py:send():179] send: telemetry
+2021-07-23 16:27:24,690 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:24,691 DEBUG   SenderThread:3072890 [sender.py:send():179] send: exit
+2021-07-23 16:27:24,692 INFO    SenderThread:3072890 [sender.py:send_exit():287] handling exit code: 255
+2021-07-23 16:27:24,693 INFO    SenderThread:3072890 [sender.py:send_exit():295] send defer
+2021-07-23 16:27:24,694 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:24,696 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:24,697 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 0
+2021-07-23 16:27:24,699 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:24,699 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 0
+2021-07-23 16:27:24,699 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 1
+2021-07-23 16:27:24,700 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:24,700 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 1
+2021-07-23 16:27:24,767 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:24,767 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 1
+2021-07-23 16:27:24,767 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 2
+2021-07-23 16:27:24,768 DEBUG   SenderThread:3072890 [sender.py:send():179] send: stats
+2021-07-23 16:27:24,768 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:24,768 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 2
+2021-07-23 16:27:24,768 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:24,768 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 2
+2021-07-23 16:27:24,768 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 3
+2021-07-23 16:27:24,768 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:24,768 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 3
+2021-07-23 16:27:24,769 DEBUG   SenderThread:3072890 [sender.py:send():179] send: summary
+2021-07-23 16:27:24,783 INFO    SenderThread:3072890 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-07-23 16:27:24,783 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:24,783 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 3
+2021-07-23 16:27:24,783 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 4
+2021-07-23 16:27:24,783 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:24,783 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 4
+2021-07-23 16:27:24,783 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:24,783 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 4
+2021-07-23 16:27:24,801 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:25,180 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 5
+2021-07-23 16:27:25,180 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:25,181 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:25,181 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 5
+2021-07-23 16:27:25,181 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:25,181 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 5
+2021-07-23 16:27:25,181 INFO    SenderThread:3072890 [dir_watcher.py:finish():282] shutting down directory watcher
+2021-07-23 16:27:25,282 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:25,527 INFO    SenderThread:3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/output.log
+2021-07-23 16:27:25,528 INFO    SenderThread:3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/config.yaml
+2021-07-23 16:27:25,528 INFO    SenderThread:3072890 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-summary.json
+2021-07-23 16:27:25,529 INFO    SenderThread:3072890 [dir_watcher.py:finish():312] scan: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files
+2021-07-23 16:27:25,529 INFO    SenderThread:3072890 [dir_watcher.py:finish():318] scan save: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-summary.json wandb-summary.json
+2021-07-23 16:27:25,530 INFO    SenderThread:3072890 [dir_watcher.py:finish():318] scan save: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/output.log output.log
+2021-07-23 16:27:25,531 INFO    SenderThread:3072890 [dir_watcher.py:finish():318] scan save: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/conda-environment.yaml conda-environment.yaml
+2021-07-23 16:27:25,541 INFO    SenderThread:3072890 [dir_watcher.py:finish():318] scan save: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/requirements.txt requirements.txt
+2021-07-23 16:27:25,547 INFO    SenderThread:3072890 [dir_watcher.py:finish():318] scan save: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/config.yaml config.yaml
+2021-07-23 16:27:25,547 INFO    SenderThread:3072890 [dir_watcher.py:finish():318] scan save: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-metadata.json wandb-metadata.json
+2021-07-23 16:27:25,549 INFO    SenderThread:3072890 [dir_watcher.py:finish():318] scan save: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/media/graph/graph_0_summary_1fd512c8a2f378a564ba.graph.json media/graph/graph_0_summary_1fd512c8a2f378a564ba.graph.json
+2021-07-23 16:27:25,549 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 6
+2021-07-23 16:27:25,549 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:25,550 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:25,551 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 6
+2021-07-23 16:27:25,552 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:25,552 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 6
+2021-07-23 16:27:25,552 INFO    SenderThread:3072890 [file_pusher.py:finish():176] shutting down file pusher
+2021-07-23 16:27:25,552 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 7
+2021-07-23 16:27:25,552 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:25,552 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 7
+2021-07-23 16:27:25,552 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:25,552 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 7
+2021-07-23 16:27:25,651 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,078 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 8
+2021-07-23 16:27:26,078 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,078 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:26,078 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 8
+2021-07-23 16:27:26,078 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:26,078 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 8
+2021-07-23 16:27:26,079 INFO    SenderThread:3072890 [sender.py:send_request_defer():342] send defer: 9
+2021-07-23 16:27:26,079 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: defer
+2021-07-23 16:27:26,079 DEBUG   SenderThread:3072890 [sender.py:send():179] send: final
+2021-07-23 16:27:26,079 INFO    HandlerThread:3072890 [handler.py:handle_request_defer():141] handle defer: 9
+2021-07-23 16:27:26,079 DEBUG   SenderThread:3072890 [sender.py:send():179] send: footer
+2021-07-23 16:27:26,079 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: defer
+2021-07-23 16:27:26,079 INFO    SenderThread:3072890 [sender.py:send_request_defer():304] handle sender defer: 9
+2021-07-23 16:27:26,179 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,180 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,281 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,281 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,382 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,382 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,485 INFO    Thread-13 :3072890 [upload_job.py:push():133] Uploaded file /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/wandb-summary.json
+2021-07-23 16:27:26,488 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,491 INFO    Thread-16 :3072890 [upload_job.py:push():133] Uploaded file /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/requirements.txt
+2021-07-23 16:27:26,491 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,497 INFO    Thread-15 :3072890 [upload_job.py:push():133] Uploaded file /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/conda-environment.yaml
+2021-07-23 16:27:26,503 INFO    Thread-17 :3072890 [upload_job.py:push():133] Uploaded file /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/config.yaml
+2021-07-23 16:27:26,583 INFO    Thread-14 :3072890 [upload_job.py:push():133] Uploaded file /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/files/output.log
+2021-07-23 16:27:26,592 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,593 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,695 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,695 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,797 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-23 16:27:26,797 DEBUG   SenderThread:3072890 [sender.py:send_request():193] send_request: poll_exit
+2021-07-23 16:27:26,797 INFO    SenderThread:3072890 [file_pusher.py:join():181] waiting for file pusher
+2021-07-23 16:27:26,798 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: get_summary
+2021-07-23 16:27:26,798 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: sampled_history
+2021-07-23 16:27:26,799 DEBUG   HandlerThread:3072890 [handler.py:handle_request():124] handle_request: shutdown
+2021-07-23 16:27:26,799 INFO    HandlerThread:3072890 [handler.py:finish():638] shutting down handler
+2021-07-23 16:27:27,079 INFO    WriterThread:3072890 [datastore.py:close():288] close: /home/nttung/person-in-context/BPA-Net/script/wandb/run-20210723_162300-6jd1uclv/run-6jd1uclv.wandb
+2021-07-23 16:27:27,797 INFO    SenderThread:3072890 [sender.py:finish():933] shutting down sender
+2021-07-23 16:27:27,798 INFO    SenderThread:3072890 [file_pusher.py:finish():176] shutting down file pusher
+2021-07-23 16:27:27,798 INFO    SenderThread:3072890 [file_pusher.py:join():181] waiting for file pusher
+2021-07-23 16:27:27,802 INFO    MainThread:3072890 [internal.py:handle_exit():78] Internal process exited

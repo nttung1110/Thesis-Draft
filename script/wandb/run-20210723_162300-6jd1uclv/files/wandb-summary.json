@@ -1,0 +1,1 @@
+{"graph_0": {"_type": "graph-file", "path": "media/graph/graph_0_summary_1fd512c8a2f378a564ba.graph.json", "sha256": "1fd512c8a2f378a564baac186d4dbb63e75264dad4e9dc90304bef546e8bc33e", "size": 1651}, "loss_matching_2019_default_param_context_pose_attention_no_one_hot": 0.600261561870575, "_runtime": 162, "_timestamp": 1627057542, "_step": 0}

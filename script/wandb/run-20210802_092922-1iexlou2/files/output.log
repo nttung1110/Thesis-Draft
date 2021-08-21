@@ -1,0 +1,30 @@
+
+[epoch_1, batch_50] loss: 1.899
+[epoch_1, batch_100] loss: 1.562
+[epoch_1, batch_150] loss: 1.487
+[epoch_1, batch_200] loss: 1.376
+[epoch_1, batch_250] loss: 1.317
+[epoch_1, batch_300] loss: 1.284
+[epoch_1, batch_350] loss: 1.261
+[epoch_1, batch_400] loss: 1.197
+[epoch_1, batch_450] loss: 1.141
+[epoch_1, batch_500] loss: 1.161
+[epoch_1, batch_550] loss: 1.109
+[epoch_1, batch_600] loss: 1.105
+[epoch_1, batch_650] loss: 1.075
+[epoch_1, batch_700] loss: 1.084
+[epoch_1, batch_750] loss: 1.052
+[epoch_1, batch_800] loss: 1.022
+[epoch_1, batch_850] loss: 1.018
+[epoch_1, batch_900] loss: 1.011
+[epoch_1, batch_950] loss: 0.988
+[epoch_1, batch_1000] loss: 1.003
+[epoch_1, batch_1050] loss: 1.017
+[epoch_1, batch_1100] loss: 0.972
+[epoch_1, batch_1150] loss: 0.974
+Traceback (most recent call last):
+  File "train_sim_net_no_mask.py", line 108, in <module>
+    train(continue_to_train)
+  File "train_sim_net_no_mask.py", line 100, in train
+    path_ckpt = os.path.join(path_ckpt, 'sim_no_mask_net_{}.pth'.format(epoch))
+UnboundLocalError: local variable 'path_ckpt' referenced before assignment

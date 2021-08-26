@@ -231,9 +231,6 @@ def infer_debug_images(path_json_detect, path_image_folder, path_json_out_res, p
         json.dump(res_final, fp, indent = 4)
 
 
-
-        
-
 if __name__ == '__main__':
     
     print("Constructing co-occurence matrix")

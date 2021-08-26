@@ -1,0 +1,7 @@
+auxilary-data-no-mask/train/feature_save/
+auxilary-data-pair-match-context-pose-attention/train/feature_*save/
+feature_*save/
+checkpoint/
+result/
+detect_result/
+pose-data-2019

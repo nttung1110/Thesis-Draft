@@ -5,3 +5,10 @@ checkpoint/
 result/
 detect_result/
 pose-data-2019
+
+*.jpeg
+*.jpg
+*.mp4
+*.pyc
+
+results_added/

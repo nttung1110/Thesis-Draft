@@ -164,125 +164,136 @@ def load_model_predict_matching():
     return model_predict, model_matching, device
 
 
-
-def infer_single_image(path_image):
+def infer_single_video(path_frame_video):
     # load model predict
     print("============Loading BPA model==================")
     model_predict, model_matching, device = load_model_predict_matching()
     print("============Finish===============")
-
-    # object detector results 
-    instance = detect_single_img(path_image)[0]
-    if "annotations" not in instance:
-        annot = instance["predictions"]
-    else:
-        annot = instance["annotations"]
-
-    # filter human annotation
-    human_boxes = []
-    list_corres_idx_box = []
     
-    for idx, each_annot in enumerate(annot):
-        cat_id = each_annot["category_id"]
-        format_box = each_annot["bbox"]
+    # get width height of first image
+    height, width, _ = cv2.imread(os.path.join(path_frame_video, os.listdir(path_frame_video)[0])).shape
+    # prepare output video
+    # get folder name of video 
+    path_vid_out = path_frame_video.split("/")[-1]+ "_visualized"+".mp4"
+    output_visualize = cv2.VideoWriter(path_vid_out, cv2.VideoWriter_fourcc(*'MP4V'), 5.0, (width, height))
 
-        # bottom left and top right
-        format_box = [(format_box[0], format_box[3]), (format_box[2], format_box[1])]
-        if int(cat_id) == 1: # human
-            human_boxes.append(format_box)
-            list_corres_idx_box.append(idx)
-
-
-    # get pose information 
-    print("========Getting pose information==============")
-    kp_dict = run_single_pose(path_image, human_boxes, list_corres_idx_box, False)
-    
-
-    # filter human objects
-    h_annot_list = []
-    obj_group_category = {}
-    for true_idx, each_annot in enumerate(annot):
-        # group same objects first
-        category_id = int(each_annot["category_id"])
-        res = {}
-        res["bbox"] = each_annot["bbox"]
-        res["true_idx"] = true_idx
-        if category_id == 1:
-            # human 
-            h_annot_list.append(res)
-
+    print("Running inference on video")
+    for idx_run, path_image in enumerate(sorted(os.listdir(path_frame_video))):
+        print("Num:", idx_run)
+        # object detector results 
+        path_image = os.path.join(path_frame_video, path_image)
+        instance = detect_single_img(path_image)[0]
+        if "annotations" not in instance:
+            annot = instance["predictions"]
         else:
-            # objects
-            if category_id not in obj_group_category:
-                obj_group_category[category_id] = []
+            annot = instance["annotations"]
 
-            res["category_id"] = category_id
-            obj_group_category[category_id].append(res)
-
-
-    print("==========Making HOI-Inference===========")
-    # PAIRE MATCHING FLOW
-    all_pair_res = []
-    img_path = path_image
-    for cat_id, obj_cat_list in obj_group_category.items():
-        # find pair
-        pair_res = pair_matching_model(h_annot_list, obj_cat_list, model_matching, device, img_path, kp_dict)
+        # filter human annotation
+        human_boxes = []
+        list_corres_idx_box = []
         
-        # analyze_accept_pair_score.extend(list_accept_score)
-        # analyze_reject_pair_score.extend(list_reject_score)
-        all_pair_res.extend(pair_res)
+        for idx, each_annot in enumerate(annot):
+            cat_id = each_annot["category_id"]
+            format_box = each_annot["bbox"]
 
-    # PREDICTION FLOW
-    triplet_result = []
-    test_data = HOIA_infer_predict(all_pair_res, annot, img_path)
-    testloader = torch.utils.data.DataLoader(test_data, batch_size = 1, num_workers=2)
-    # for each pair, classify the correct relationship
-    for i, data_test in enumerate(testloader, 0):
-        # construct input to model
-        input, obj_cat_id, s_id, o_id, score_matching = data_test
-        input = input.float().to(device)
+            # bottom left and top right
+            format_box = [(format_box[0], format_box[3]), (format_box[2], format_box[1])]
+            if int(cat_id) == 1: # human
+                human_boxes.append(format_box)
+                list_corres_idx_box.append(idx)
 
-        output = model_predict(input)
 
-        # get probability of the output with sigmoid function
+        # get pose information 
+        kp_dict = run_single_pose(path_image, human_boxes, list_corres_idx_box, False)
+        
 
-        # get co-occurence relationship vector 
-        co_vec = co_mat[obj_cat_id-1].reshape((1, co_mat.shape[1]))
-        output = output.cpu().detach().numpy()
-        score_matching = score_matching.cpu().detach().numpy()[0]
-        # binarize the output
-        filter_rel = co_vec*output
-        final_rel_pos = np.where(filter_rel>0)
+        # filter human objects
+        h_annot_list = []
+        obj_group_category = {}
+        for true_idx, each_annot in enumerate(annot):
+            # group same objects first
+            category_id = int(each_annot["category_id"])
+            res = {}
+            res["bbox"] = each_annot["bbox"]
+            res["true_idx"] = true_idx
+            if category_id == 1:
+                # human 
+                h_annot_list.append(res)
 
-        for pos1, pos2 in zip(final_rel_pos[0], final_rel_pos[1]):
-            score = filter_rel[pos1][pos2] 
-
-            rel_cat_id = int(pos2+1)
-            prob_rel = sigmoid_func(score)
-
-            triplet = {}
-            triplet["subject_id"] = s_id.item()
-            triplet["object_id"] = o_id.item()
-
-            if "score" in annot[s_id.item()]:
-                prob_subject = annot[s_id.item()]["score"]
             else:
-                prob_subject = 1
+                # objects
+                if category_id not in obj_group_category:
+                    obj_group_category[category_id] = []
 
-            if "score" in annot[s_id.item()]:
-                prob_object = annot[o_id.item()]["score"]
-            else:
-                prob_object = 1
+                res["category_id"] = category_id
+                obj_group_category[category_id].append(res)
 
-            triplet["category_id"] = rel_cat_id
-            triplet["score"] = prob_subject * prob_object * prob_rel * score_matching
-            triplet_result.append(triplet)
-    
-    img_read = cv2.imread(img_path)
-    vis_img = draw_res_method(img_read, annot, triplet_result)
 
-    print("Visualizing image in result.jpg")
-    cv2.imwrite("result.jpg", vis_img)
+        # PAIRE MATCHING FLOW
+        all_pair_res = []
+        img_path = path_image
+        for cat_id, obj_cat_list in obj_group_category.items():
+            # find pair
+            pair_res = pair_matching_model(h_annot_list, obj_cat_list, model_matching, device, img_path, kp_dict)
+            
+            # analyze_accept_pair_score.extend(list_accept_score)
+            # analyze_reject_pair_score.extend(list_reject_score)
+            all_pair_res.extend(pair_res)
+
+        # PREDICTION FLOW
+        triplet_result = []
+        test_data = HOIA_infer_predict(all_pair_res, annot, img_path)
+        testloader = torch.utils.data.DataLoader(test_data, batch_size = 1, num_workers=2)
+        # for each pair, classify the correct relationship
+        for i, data_test in enumerate(testloader, 0):
+            # construct input to model
+            input, obj_cat_id, s_id, o_id, score_matching = data_test
+            input = input.float().to(device)
+
+            output = model_predict(input)
+
+            # get probability of the output with sigmoid function
+
+            # get co-occurence relationship vector 
+            co_vec = co_mat[obj_cat_id-1].reshape((1, co_mat.shape[1]))
+            output = output.cpu().detach().numpy()
+            score_matching = score_matching.cpu().detach().numpy()[0]
+            # binarize the output
+            filter_rel = co_vec*output
+            final_rel_pos = np.where(filter_rel>0)
+
+            for pos1, pos2 in zip(final_rel_pos[0], final_rel_pos[1]):
+                score = filter_rel[pos1][pos2] 
+
+                rel_cat_id = int(pos2+1)
+                prob_rel = sigmoid_func(score)
+
+                triplet = {}
+                triplet["subject_id"] = s_id.item()
+                triplet["object_id"] = o_id.item()
+
+                if "score" in annot[s_id.item()]:
+                    prob_subject = annot[s_id.item()]["score"]
+                else:
+                    prob_subject = 1
+
+                if "score" in annot[s_id.item()]:
+                    prob_object = annot[o_id.item()]["score"]
+                else:
+                    prob_object = 1
+
+                triplet["category_id"] = rel_cat_id
+                triplet["score"] = prob_subject * prob_object * prob_rel * score_matching
+                triplet_result.append(triplet)
+        
+        img_read = cv2.imread(img_path)
+        vis_img = draw_res_method(img_read, annot, triplet_result)
+        output_visualize.write(vis_img)
+
+
+    output_visualize.release()
+
+        
     
     
 
@@ -296,9 +307,8 @@ if __name__ == '__main__':
     co_mat = co_mat_construction(path_json_construct_co_matrix)
     print("Finish constructing")
     
-    path_image = '/home/nttung/person-in-context/BPA-Net/results_added/trainval_024115.jpg'
-    # path_image = '/home/nttung/person-in-context/BPA-Net/video_demo/reading_book_harder_cut/000032.jpg'
+    path_frame_list = '/home/nttung/person-in-context/BPA-Net/video_demo/reading_book_harder_cut'
 
-    infer_single_image(path_image)
+    infer_single_video(path_frame_list)
 
     print("Making inference in %s seconds" % (time.time() - start_time))

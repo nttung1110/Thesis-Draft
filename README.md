@@ -117,7 +117,7 @@ python infer_pose_2_json.py
 ```
 There are some parameters which should be changed inside ```infer_pose_2_json.py``` script for external usage
 * `path_img_in_test`: path to image folder to be trained
-* `path_json_detect_test`: path to detection result which have been predicted by object detector. For example ```../detect_result/YOLO_result.json````
+* `path_json_detect_test`: path to detection result which have been predicted by object detector. For example ```../detect_result/YOLO_result.json```
 * `path_json_out_pose_test`: path to keypoint estimation result in json format
 
 After human keypoint result of the image folder have been extracted, the result will be stored in json file which should be transferred into 

@@ -40,13 +40,106 @@ Our final components of the system is relationship prediction. In this part, we 
 ![Rel_prediction](/figures/masking_affordance.png)
 
 ## Repository Usage
-### Environment Settings
-
 #### Installation
+
+Run the following commands for setting up the project
+
+```
+git clone https://github.com/nttung1110/Thesis-Draft
+
+conda create --name BANAM --file requirement.txt
+
+conda activate BANAM
+```
 
 #### Data
 
-### Training and Testing
+The HOI-A 2019 dataset was released at PIC challenge in ICCV 2019 workshop. To download the data, you are suggested to register for
+an account and go to [HOI-A 2019](http://picdataset.com/challenge/index/) for downloading it
+
+### Training
+
+The second-stage training process is divided into two sub-stage: pair matching network and relationship prediction network which are trained independently.
+
+The input to both network similarly requires object detection results from the previous stage. As we have mentioned before,
+the object detection module can be adaptively changed depending on the use cases. Therefore, the users can update object detection model
+with many state-of-the-art architecture such as: YOLO, Efficient-Det, ... However, the output of object detection model have to follow the
+following format for supplying to our second-stage. Output must be in json format which is similar to the following examples:
+
+```
+{
+  {
+    "file_name": "trainval_000000.png",
+    "annotations": [
+      {
+          "bbox": [
+              273,
+              93,
+              458,
+              480
+          ],
+          "category_id": "1"
+      },
+      {
+          "bbox": [
+              354,
+              149,
+              364,
+              156
+          ],
+          "category_id": "3"
+      }
+    ]
+  },
+  {
+    "file_name": "trainval_000000.png",
+    ...
+  },
+  
+}
+```
+
+* `file_name`: name of image.
+* `annotations`: list of bounding boxes being predicted by object detection model, each element stores bounding box along with object category of the result.
+
+Note that object detection results json file should be put in ```./detect_result``` folder
+#### Pair Matching Network
+
+In this sub-stage, we utilized pose estimation results as additional information for training our network. Therefore, we employed an off-the-self 
+keypoint estimation model from [Deep High-Resolution Representation Learning for Human Pose Estimation](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch)
+. The users are suggested to extract keypoint results by using the pre-installed folder which we have set up.
+
+For preparing the keypoint of human existing inside the image, follow the following commands:
+
+```
+cd external_lib
+python infer_pose_2_json.py
+```
+There are some parameters which should be changed inside ```infer_pose_2_json.py``` script for external usage
+* `path_img_in_test`: path to image folder to be trained
+* `path_json_detect_test`: path to detection result which have been predicted by object detector. For example ```../detect_result/YOLO_result.json````
+* `path_json_out_pose_test`: path to keypoint estimation result in json format
+
+After human keypoint result of the image folder have been extracted, the result will be stored in json file which should be transferred into 
+folder ```pose-data-2019``` for later usage
+
+Finally, the pair matching network are ready to be trained. Some of the parameters should be specified before running the script:
+
+```
+cd script
+mkdir checkpoint
+python train_pair_matching --lr 0.001 --batch_size 64 --weight-decay 1e-4 --num_workers 8 --epochs 100 --optimizer sgd
+```
+
+* `data_root`: path to root of the HOI-2019 dataset
+* `data_root_2`: path to cache data for storing feature extracted by feature extractor
+* `data_root_pose`: path to keypoint estimation result in json format
+
+Weight for epochs will be stored in folder ```./checkpoint/pair_matching/```
+
+#### Relationship Prediction Network
+
+This network was trained in a much simpler way than pair matching network. 
 
 ### Visualization
 

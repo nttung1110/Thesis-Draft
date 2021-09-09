@@ -36,7 +36,7 @@ We proposed a pair matching network serving as an approximated pair-matching fun
 
 ### Relationship Prediction
 
-Our final components of the system is relationship prediction. In this part, we introduced a novel type of feature call object affordance feature. This type of features were used as prior knowledge about the semantic association between an object and relationship. For example, it is nonsense to associate relationship "eating" to object categories "bicycle". We made use of this feature in post processing step for masking our irrelevant relationship categories scores. The overall pipeline of our final component was shown below
+Our final component of the system is relationship prediction. In this part, we introduced a novel type of feature called object affordance feature. This type of features were used as prior knowledge about the semantic association between an object and relationship. For example, it is nonsense to associate relationship "eating" to object categories "bicycle". We made use of this feature in post processing step for masking our irrelevant relationship categories scores. The overall pipeline of our final component was shown below
 ![Rel_prediction](/figures/masking_affordance.png)
 
 ## Repository Usage
@@ -132,16 +132,58 @@ python train_pair_matching --lr 0.001 --batch_size 64 --weight-decay 1e-4 --num_
 ```
 
 * `data_root`: path to root of the HOI-2019 dataset
-* `data_root_2`: path to cache data for storing feature extracted by feature extractor
+* `data_root_2`: path to cache data for storing feature extracted by feature extractor which will be used by **pair matching network**
 * `data_root_pose`: path to keypoint estimation result in json format
 
 Weight for epochs will be stored in folder ```./checkpoint/pair_matching/```
 
 #### Relationship Prediction Network
 
-This network was trained in a much simpler way than pair matching network. 
+This network was trained in a much simpler way than pair matching network. Some of the parameters should be specified before running the script:
+
+```
+cd script
+python train_sim_net
+```
+
+* `data_root`: path to root of the HOI-2019 dataset
+* `data_root_2`: path to cache data for storing feature extracted by feature extractor which will be used by **relation prediction network**
+* `path_ckpt`: path to checkpoint of model
+
+
+### Evaluation 
+For reproducing the results on HOI-A test 2019 dataset, the users are suggested to download our [Pretrained Weights](https://drive.google.com/drive/folders/11JVfVKBnv_1wqlziVwmauUPetkw8TeEF?usp=sharing) which includes the following
+weights for three models:
+
+* Stage 1 (Object Detection): During our experiment, we reported that YOLOv5 detection results have the highest scores
+among other detectors. Therefore, we released our pre-trained weight of YOLOv5 architecture for HOI-A 2019 dataset
+
+* Stage 2 (Pair matching and Relationship Prediction): 17 and 30 training epochs for pair matching and relationship prediction respectively
+
+After that, check and specify some essential parameters as following and run the script:
+
+```
+cd script
+python infer_full_pipeline.py
+```
+
+* `path_ckpt_predict`: path to pretrained weights of pair matching model
+* `path_ckpt_matching`: path to pretrained weights of relationship prediction network
+* `path_json_detect`: path to detection results in json file
+* `path_image_folder`: path to image folder of the dataset
+* `path_json_pose`: path to keypoint estimation results for pair matching model
+* `path_json_out`: path to json file which stores results for evaluation 
+* `path_json_construct_co_matrix`: path to `train_2019.json` for constructing object affordance features
+
+Then, specify the path to results of above script in `evaluation.py` at parameter `pred_json` for 
+viewing the final results of our model with mAP scores for 11 relationship categories in HOI-A test 2019 dataset.
 
 ### Visualization
+
+We also prepared demo implementation for both images and video. However, the video results were constructed by extracting results individually for each frame
+which will not utilize the temporal information. For running the demo, the users are suggested to dowload our [Pretrained Weights](https://drive.google.com/drive/folders/11JVfVKBnv_1wqlziVwmauUPetkw8TeEF?usp=sharing). 
+
+
 
 ### Citation
 

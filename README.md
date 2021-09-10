@@ -183,6 +183,17 @@ viewing the final results of our model with mAP scores for 11 relationship categ
 We also prepared demo implementation for both images and video. However, the video results were constructed by extracting results individually for each frame
 which will not utilize the temporal information. For running the demo, the users are suggested to dowload our [Pretrained Weights](https://drive.google.com/drive/folders/11JVfVKBnv_1wqlziVwmauUPetkw8TeEF?usp=sharing). 
 
+In our implementation, we used YOLOv5 model architecture for predicting object bounding boxes and categories in a given image. The results will be
+then processed by our BANAM network to predict human-object-interaction categories. The user should specify image path for predicting results 
+with parameter `path_image`
+
+```
+cd script
+python demo_single_image.py
+```
+
+The users can also change the object detector results by creating their own modules and 
+specifying the result at line 175 of script `demo_single_image.py`
 
 
 ### Citation

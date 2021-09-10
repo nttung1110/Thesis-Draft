@@ -187,14 +187,29 @@ In our implementation, we used YOLOv5 model architecture for predicting object b
 then processed by our BANAM network to predict human-object-interaction categories. The user should specify image path for predicting results 
 with parameter `path_image`
 
+For image and video testing, run the following commands:
+
 ```
 cd script
 python demo_single_image.py
+```
+or
+
+```
+cd script
+python demo_single_video.py
 ```
 
 The users can also change the object detector results by creating their own modules and 
 specifying the result at line 175 of script `demo_single_image.py`
 
+* Demo image: 
+![Playing computer](https://i.imgur.com/Y3yU8U1.jpg)
+![Riding horse](https://i.imgur.com/Fxx0sW5.jpg)
+* Demo video: 
+![eating](/figures/gif_eating.gif)
+![riding](/figures/riding_horse.gif)
+![kicking](/figures/kicking.gif)
 
 ### Citation
 ```

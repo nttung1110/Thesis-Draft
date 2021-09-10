@@ -17,9 +17,9 @@ from datasets.hoia_prediction import HOIA
 from model.rel_prediction_network import SimpleNet
 
 data_root = '/home/nttung/person-in-context/HOI-Det/HOI-A-new'
-data_root_2 = '/home/nttung/person-in-context/BPA-Net/auxilary-data'
+data_root_2 = '/home/nttung/person-in-context/BANAM/auxilary-data'
 
-path_ckpt = '/home/nttung/person-in-context/BPA-Net/checkpoint/relation_prediction'
+path_ckpt = '/home/nttung/person-in-context/BANAM/checkpoint/relation_prediction'
 
 def train_from_ckpt(path_ckpt, model, optimizer):
     ckpt = torch.load(path_ckpt)

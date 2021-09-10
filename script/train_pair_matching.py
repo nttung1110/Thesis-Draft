@@ -19,8 +19,8 @@ from datasets.hoia_matching import HOIA
 from model.bpa_network import PosePairAttenNet
 
 data_root = '/home/nttung/person-in-context/HOI-Det/HOI-A-new'
-data_root_2 = '/home/nttung/person-in-context/BPA-Net/auxilary-data-pair-match-context-pose-attention'
-data_root_pose = '/home/nttung/person-in-context/BPA-Net/pose-data-2019/pose_results_train_gt_2019.json'
+data_root_2 = '/home/nttung/person-in-context/BANAM/auxilary-data-pair-match-context-pose-attention'
+data_root_pose = '/home/nttung/person-in-context/BANAM/pose-data-2019/pose_results_train_gt_2019.json'
 
 
 
@@ -120,7 +120,7 @@ def train(continue_to_train, args):
         
         if epoch % 1 == 0: # save every 1 epoch
             # Path("./checkpoint_matching_context/").mkdir(parents=True, exist_ok=True)
-            save_ckpt = os.path.join('/home/nttung/person-in-context/BPA-Net/checkpoint/pair_matching', 'BPA_{}.pth'.format(epoch))
+            save_ckpt = os.path.join('/home/nttung/person-in-context/BANAM/checkpoint/pair_matching', 'BPA_{}.pth'.format(epoch))
             # path_ckpt = "./checkpoint_matching_context_final/pairnet_context_pose_attention_default_param_no_one_hot_{}_epoch.pth".format(epoch)
             torch.save(model.state_dict(), save_ckpt)
     

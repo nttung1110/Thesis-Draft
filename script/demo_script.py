@@ -9,7 +9,6 @@ import cv2
 import torch
 import torch.backends.cudnn as cudnn
 
-
 from yolov5.demo import parse_opt, initialize, detect
 
 
@@ -56,7 +55,7 @@ def detect_single_img(path_img):
     return preds
 
 if __name__ == "__main__":
-    sample_img_path = "/home/nttung/person-in-context/BPA-Net/object_detector/sample.jpg"
+    sample_img_path = "/home/nttung/person-in-context/BANAM/object_detector/sample.jpg"
     sample_img = cv2.imread(sample_img_path)
     imgs = [sample_img]
     example(imgs)

@@ -296,8 +296,8 @@ if __name__ == '__main__':
     co_mat = co_mat_construction(path_json_construct_co_matrix)
     print("Finish constructing")
     
-    path_image = '/home/nttung/person-in-context/BPA-Net/results_added/trainval_024115.jpg'
-    # path_image = '/home/nttung/person-in-context/BPA-Net/video_demo/reading_book_harder_cut/000032.jpg'
+    path_image = '/home/nttung/person-in-context/BANAM/object_detector/riding_horse.jpg'
+    # path_image = '/home/nttung/person-in-context/BPA-Net/video_demo/reading_bo/ok_harder_cut/000032.jpg'
 
     infer_single_image(path_image)
 
